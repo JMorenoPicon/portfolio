@@ -35,8 +35,12 @@ interface Translations {
   };
   contact: {
     title: string;
+    description: string;
+    name: string;
     email: string;
-    phone: string;
+    message: string;
+    sendMessage: string;
+    messageSent: string;
   };
   footer: {
     developedBy: string;
@@ -89,9 +93,14 @@ const translationsData: Record<Locale, Translations> = {
       githubButton: "Ver en GitHub",
     },
     contact: {
-      title: "Contacto",
+      title: "¡Hablemos!",
+      description:
+        "¿Tienes alguna pregunta o quieres colaborar en un proyecto? Escríbeme y estaré encantado de responder.",
+      name: "Nombre",
       email: "Correo Electrónico",
-      phone: "Teléfono",
+      message: "Mensaje",
+      sendMessage: "Enviar Mensaje",
+      messageSent: "¡Mensaje enviado correctamente!",
     },
     footer: {
       developedBy: "Desarrollado por",
@@ -136,9 +145,14 @@ const translationsData: Record<Locale, Translations> = {
       githubButton: "View on GitHub",
     },
     contact: {
-      title: "Contact",
+      title: "Let's Talk!",
+      description:
+        "Do you have any questions or want to collaborate on a project? Send me a message and I'll be happy to respond.",
+      name: "Name",
       email: "Email",
-      phone: "Phone",
+      message: "Message",
+      sendMessage: "Send Message",
+      messageSent: "Message sent successfully!",
     },
     footer: {
       developedBy: "Developed by",

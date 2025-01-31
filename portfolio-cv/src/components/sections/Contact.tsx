@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useLocale } from "@/context/LocaleContext"; // ✅ Importamos el contexto de idioma
 
 export default function Contact() {
+  const { translations } = useLocale(); // ✅ Obtiene las traducciones dinámicas
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -12,7 +14,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aquí puedes manejar el envío del formulario (API, EmailJS, etc.)
-    alert("Mensaje enviado correctamente!");
+    alert(translations.contact.messageSent); // ✅ Mensaje traducido
   };
 
   return (
@@ -24,7 +26,7 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        ¡Hablemos!
+        {translations.contact.title}
       </motion.h2>
 
       {/* Mensaje */}
@@ -34,7 +36,7 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        ¿Tienes alguna pregunta o quieres colaborar en un proyecto? Escríbeme y estaré encantado de responder.
+        {translations.contact.description}
       </motion.p>
 
       {/* Redes Sociales */}
@@ -67,7 +69,7 @@ export default function Contact() {
           download
           className="px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-semibold hover:bg-blue-600 transition shadow-lg"
         >
-          📄 Descargar CV
+          📄 {translations.hero.buttonCv}
         </a>
       </motion.div>
 
@@ -80,7 +82,7 @@ export default function Contact() {
         transition={{ duration: 0.8, delay: 0.8 }}
       >
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-300">Nombre</label>
+          <label className="block text-sm font-medium text-gray-300">{translations.contact.name}</label>
           <input
             type="text"
             name="name"
@@ -92,7 +94,7 @@ export default function Contact() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-300">Email</label>
+          <label className="block text-sm font-medium text-gray-300">{translations.contact.email}</label>
           <input
             type="email"
             name="email"
@@ -104,7 +106,7 @@ export default function Contact() {
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-300">Mensaje</label>
+          <label className="block text-sm font-medium text-gray-300">{translations.contact.message}</label>
           <textarea
             name="message"
             value={form.message}
@@ -119,7 +121,7 @@ export default function Contact() {
           type="submit"
           className="w-full py-3 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition"
         >
-          Enviar Mensaje
+          {translations.contact.sendMessage}
         </button>
       </motion.form>
     </section>
