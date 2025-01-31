@@ -2,6 +2,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaNodeJs, FaDocker, FaGit, FaJs, FaJava, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiNestjs, SiTypescript, SiPostman, SiEclipseide, SiMysql, SiAngular, SiFigma } from "react-icons/si";
+import { useLocale } from "@/context/LocaleContext"; // Importa el contexto de traducción
 
 const skills = [
   // 🟢 Backend
@@ -30,6 +31,8 @@ const skills = [
 ];
 
 export default function About() {
+  const { translations } = useLocale(); // Obtiene las traducciones según el idioma
+
   return (
     <section className="bg-darkBlue text-white py-20 px-6 md:px-20">
       {/* Contenedor principal */}
@@ -44,7 +47,7 @@ export default function About() {
         >
           <Image
             src="/mi-foto.jpg"
-            alt="Javier Moreno"
+            alt={translations.hero.avatarAlt}
             width={300}
             height={300}
             className="rounded-full"
@@ -58,9 +61,9 @@ export default function About() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold">Sobre mí</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold">{translations.about.title}</h2>
           <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-          He desarrollado mis capacidades y hablidades durante mis estudios en Desarrollo de aplicaciones Web, además de haber tenido el placer de trabajar durante estos estudios en Giesecker+Devrient, empresa la cual me ha permitido crecer como profesional, aprendiendo tecnologías y lenguajes de forma paralela y otorgandome experiencia en el sector.<br />
+            {translations.about.description}
           </p>
         </motion.div>
       </div>
@@ -73,7 +76,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Mis Habilidades
+          {translations.skills.title}
         </motion.h2>
 
         {/* Grid de Skills con React Icons */}

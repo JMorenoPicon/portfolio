@@ -1,0 +1,16 @@
+{
+    "home": {
+      "title": "Hello! I'm Javier Moreno",
+      "subtitle": "Backend Developer",
+      "description": "Passionate about technology and innovation.",
+      "contact": "Contact me",
+      "cv": "Download CV"
+    },
+    "navbar": {
+      "home": "Home",
+      "about": "About me",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  }
+  

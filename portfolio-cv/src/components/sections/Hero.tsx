@@ -2,25 +2,23 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-const roles = [
-  "Backend Developer",
-  "Frontend Developer",
-  "Apasionado de la Tecnología",
-  "Creador de Soluciones",
-  "Desarrollador Web"
-];
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Hero() {
+  const { translations } = useLocale(); // Obtiene las traducciones actuales
+  const roles = translations.hero.subtitle; // Obtiene los roles según el idioma seleccionado
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    if (!roles || roles.length === 0) return; // Previene el error si roles está vacío
+
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % roles.length);
     }, 2500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [roles]);
 
   return (
     <section className="min-h-screen pt-20 md:pt-24 pb-20 md:pb-24 flex flex-col md:flex-row justify-center items-center px-6 md:px-20 bg-darkBlue">
@@ -50,9 +48,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Programando con precisión
+          {translations.hero.title}
           <br />
-          <span className="text-blue-400">Desarrollo con pasión.</span>
+          <span className="text-blue-400">{translations.hero.subtitle[0]}</span>
         </motion.h1>
 
         {/* Animación de cambio de roles */}
@@ -64,7 +62,7 @@ export default function Hero() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.8 }}
         >
-          {roles[index]}
+          {roles?.[index] ?? "Loading..."}
         </motion.p>
 
         {/* Descripción Personal */}
@@ -74,9 +72,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Soy un desarrollador backend apasionado por la tecnología y la innovación.<br />
-          Me encanta crear soluciones eficientes y optimizar el rendimiento de las aplicaciones.<br />
-          Siempre estoy en busca de nuevos desafíos y oportunidades para seguir aprendiendo.
+          {translations.about.description}
         </motion.p>
 
         {/* Botones */}
@@ -89,7 +85,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            📄 Mi CV
+            📄 {translations.hero.buttonCv}
           </motion.a>
 
           <motion.a
@@ -99,7 +95,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.2, duration: 0.5 }}
           >
-            Contacto
+            {translations.hero.buttonContact}
           </motion.a>
         </div>
 
