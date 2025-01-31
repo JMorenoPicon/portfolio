@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fondo y texto */
+body {
+    @apply bg-gray-900 text-white font-sans;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    @apply max-w-screen-lg w-full px-4 flex flex-col items-center justify-center;
+}
+
+/* Animación de borde */
+@keyframes borderAnimation {
+    0% {
+        border-color: #2563eb;
+    }
+    50% {
+        border-color: #1e40af;
+    }
+    100% {
+        border-color: #2563eb;
+    }
+}
+
+.animated-border {
+    animation: borderAnimation 2s infinite alternate;
+}

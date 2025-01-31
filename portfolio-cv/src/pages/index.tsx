@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Head>
         <title>Mi Portfolio | Home</title>
-        <meta name="description" content="Portfolio de [Tu Nombre]" />
+        <meta name="description" content="Portfolio de Javier Moreno" />
       </Head>
       <Navbar />
       <main>
