@@ -1,25 +1,46 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLocale } from "@/context/LocaleContext"; // Importa el contexto de traducción
 
-const education = [
-  {
-    title: "CFGS Desarrollo de Aplicaciones Web",
-    institution: "Instituto Tecnológico superior ADA (Sevilla España)",
-    date: "2023 - 2025",
-  },
-  {
-    title: "Grado en Ingeniería Electrónica Industrial (No finalizado)",
-    institution: "Escuela Politécnica Superior de Ingeniería (Sevilla, España)",
-    date: "2017 - 2022",
-  },
-  {
-    title: "Bachillerato de Ciencias y Tecnología",
-    institution: "IES Pino Montano (Sevilla, España)",
-    date: "2014 - 2016",
-  },
-];
+const educationData = {
+  es: [
+    {
+      title: "CFGS Desarrollo de Aplicaciones Web",
+      institution: "Instituto Tecnológico Superior ADA (Sevilla, España)",
+      date: "2023 - 2025",
+    },
+    {
+      title: "Grado en Ingeniería Electrónica Industrial (No finalizado)",
+      institution: "Escuela Politécnica Superior de Ingeniería (Sevilla, España)",
+      date: "2017 - 2022",
+    },
+    {
+      title: "Bachillerato de Ciencias y Tecnología",
+      institution: "IES Pino Montano (Sevilla, España)",
+      date: "2014 - 2016",
+    },
+  ],
+  en: [
+    {
+      title: "Higher Technician in Web Application Development",
+      institution: "ADA Higher Technological Institute (Seville, Spain)",
+      date: "2023 - 2025",
+    },
+    {
+      title: "Degree in Industrial Electronic Engineering (Not completed)",
+      institution: "Higher Polytechnic School of Engineering (Seville, Spain)",
+      date: "2017 - 2022",
+    },
+    {
+      title: "Science and Technology Baccalaureate",
+      institution: "IES Pino Montano (Seville, Spain)",
+      date: "2014 - 2016",
+    },
+  ],
+};
 
 export default function Education() {
+  const { translations, locale } = useLocale(); // Obtiene las traducciones según el idioma seleccionado
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -32,7 +53,7 @@ export default function Education() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
       >
-        Educación
+        {translations.education.title}
       </motion.h2>
 
       {/* Timeline */}
@@ -44,8 +65,13 @@ export default function Education() {
       >
         <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-700 h-full hidden md:block"></div>
 
-        {education.map((edu, index) => (
-          <div key={index} className={`mb-8 flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
+        {educationData[locale].map((edu, index) => (
+          <div
+            key={index}
+            className={`mb-8 flex flex-col md:flex-row items-center ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
             {/* Punto en la línea de tiempo */}
             <div className="w-4 h-4 bg-blue-500 rounded-full absolute left-1/2 transform -translate-x-1/2 hidden md:block"></div>
 
