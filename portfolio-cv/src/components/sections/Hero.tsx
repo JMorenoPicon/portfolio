@@ -76,14 +76,13 @@ export default function Hero() {
         >
           Soy un desarrollador backend apasionado por la tecnología y la innovación.<br />
           Me encanta crear soluciones eficientes y optimizar el rendimiento de las aplicaciones.<br />
-          He desarrollado mis capacidades y hablidades durante mis estudios en Desarrollo de aplicaciones Web, además de haber tenido el placer de trabajar durante estos estudios en Giesecker+Devrient, empresa la cual me ha permitido crecer como profesional, aprendiendo tecnologías y lenguajes de forma paralela y otorgandome experiencia en el sector.<br />
           Siempre estoy en busca de nuevos desafíos y oportunidades para seguir aprendiendo.
         </motion.p>
 
         {/* Botones */}
         <div className="mt-6 flex flex-col md:flex-row items-center gap-4">
           <motion.a
-            href="/resume.pdf"
+            href="/CV JAVIER MORENO PICON.pdf"
             download
             className="px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-semibold hover:bg-blue-600 transition shadow-lg flex items-center gap-2"
             initial={{ opacity: 0, scale: 0.8 }}
