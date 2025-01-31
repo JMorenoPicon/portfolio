@@ -93,7 +93,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="/contact"
+            href="mailto:javier.moreno.picon@gmail.com"
             className="px-6 py-3 border border-blue-500 text-blue-500 rounded-full text-lg font-semibold hover:bg-blue-500 hover:text-white transition shadow-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
