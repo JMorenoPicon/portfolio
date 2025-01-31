@@ -23,8 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row justify-center items-center px-6 md:px-20 bg-darkBlue">
-      
+    <section className="min-h-screen pt-20 md:pt-24 pb-20 md:pb-24 flex flex-col md:flex-row justify-center items-center px-6 md:px-20 bg-darkBlue">
       {/* Columna de la Imagen */}
       <div className="relative flex justify-center md:w-1/2">
         <motion.div
@@ -53,7 +52,7 @@ export default function Hero() {
         >
           Programando con precisión
           <br />
-          <span className="text-blue-400">Desarrollo con pasión</span>
+          <span className="text-blue-400">Desarrollo con pasión.</span>
         </motion.h1>
 
         {/* Animación de cambio de roles */}
@@ -68,6 +67,19 @@ export default function Hero() {
           {roles[index]}
         </motion.p>
 
+        {/* Descripción Personal */}
+        <motion.p
+          className="mt-4 text-md md:text-lg text-gray-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          Soy un desarrollador backend apasionado por la tecnología y la innovación.<br />
+          Me encanta crear soluciones eficientes y optimizar el rendimiento de las aplicaciones.<br />
+          He desarrollado mis capacidades y hablidades durante mis estudios en Desarrollo de aplicaciones Web, además de haber tenido el placer de trabajar durante estos estudios en Giesecker+Devrient, empresa la cual me ha permitido crecer como profesional, aprendiendo tecnologías y lenguajes de forma paralela y otorgandome experiencia en el sector.<br />
+          Siempre estoy en busca de nuevos desafíos y oportunidades para seguir aprendiendo.
+        </motion.p>
+
         {/* Botones */}
         <div className="mt-6 flex flex-col md:flex-row items-center gap-4">
           <motion.a
@@ -78,7 +90,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            📄 Resume
+            📄 Mi CV
           </motion.a>
 
           <motion.a
