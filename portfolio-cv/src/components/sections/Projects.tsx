@@ -1,35 +1,65 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image"; // ✅ Importación de next/image
+import { useLocale } from "@/context/LocaleContext"; // ✅ Importación del contexto de idioma
 
-const projects = [
-  {
-    title: "Project F1",
-    description:
-      "Aplicación desarrollada en 1º DAW que simula campeonatos y carreras de la Fórmula 1",
-    technologies: ["Java", "MySQL", "MariaDB", "Eclipse"],
-    image: "/projects/projectF1.png",
-    link: "https://github.com/JMorenoPicon/ProjectF1",
-  },
-  {
-    title: "Pet Finder",
-    description:
-      "Aplicación para adopción de mascotas y reporte de mascotas perdidas o encontradas.",
-    technologies: ["Angular", "Bootstrap", "Node.js", "MongoDB"],
-    image: "/projects/pet-finder.png",
-    link: "https://github.com/JMorenoPicon/pet-finder",
-  },
-  {
-    title: "Portfolio",
-    description:
-      "Portfolio personal desarrollado con Next.js y Tailwind CSS.",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    image: "/projects/portfolio.png",
-    link: "https://github.com/JMorenoPicon/portfolio",
-  },
-];
+const projectsData = {
+  es: [
+    {
+      title: "Project F1",
+      description:
+        "Aplicación desarrollada en 1º DAW que simula campeonatos y carreras de la Fórmula 1",
+      technologies: ["Java", "MySQL", "MariaDB", "Eclipse"],
+      image: "/projects/projectF1.png",
+      link: "https://github.com/JMorenoPicon/ProjectF1",
+    },
+    {
+      title: "Pet Finder",
+      description:
+        "Aplicación para adopción de mascotas y reporte de mascotas perdidas o encontradas.",
+      technologies: ["Angular", "Bootstrap", "Node.js", "MongoDB"],
+      image: "/projects/pet-finder.png",
+      link: "https://github.com/JMorenoPicon/pet-finder",
+    },
+    {
+      title: "Portfolio",
+      description:
+        "Portfolio personal desarrollado con Next.js y Tailwind CSS.",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/projects/portfolio.png",
+      link: "https://github.com/JMorenoPicon/portfolio",
+    },
+  ],
+  en: [
+    {
+      title: "Project F1",
+      description:
+        "Application developed in 1st DAW that simulates championships and Formula 1 races",
+      technologies: ["Java", "MySQL", "MariaDB", "Eclipse"],
+      image: "/projects/projectF1.png",
+      link: "https://github.com/JMorenoPicon/ProjectF1",
+    },
+    {
+      title: "Pet Finder",
+      description:
+        "Application for pet adoption and reporting lost or found pets.",
+      technologies: ["Angular", "Bootstrap", "Node.js", "MongoDB"],
+      image: "/projects/pet-finder.png",
+      link: "https://github.com/JMorenoPicon/pet-finder",
+    },
+    {
+      title: "Portfolio",
+      description:
+        "Personal portfolio developed with Next.js and Tailwind CSS.",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/projects/portfolio.png",
+      link: "https://github.com/JMorenoPicon/portfolio",
+    },
+  ],
+};
 
 export default function Projects() {
+  const { translations, locale } = useLocale(); // ✅ Obtiene las traducciones dinámicas
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -42,7 +72,7 @@ export default function Projects() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
       >
-        Proyectos Destacados
+        {translations.projects.title}
       </motion.h2>
 
       {/* Grid de proyectos */}
@@ -52,7 +82,7 @@ export default function Projects() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
       >
-        {projects.map((project, index) => (
+        {projectsData[locale].map((project, index) => (
           <motion.div
             key={index}
             className="bg-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 flex flex-col h-full"
@@ -65,8 +95,8 @@ export default function Projects() {
               <Image
                 src={project.image}
                 alt={project.title}
-                layout="fill" // ✅ Hace que la imagen se ajuste al contenedor
-                objectFit="cover" // ✅ Recorta la imagen para que se vea bien sin deformarse
+                layout="fill"
+                objectFit="cover"
                 className="rounded-lg"
               />
             </div>
@@ -97,7 +127,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-600 transition w-full text-center"
               >
-                Ver en GitHub
+                {translations.projects.githubButton}
               </a>
             </div>
           </motion.div>
