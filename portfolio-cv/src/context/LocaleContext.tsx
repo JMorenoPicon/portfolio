@@ -66,6 +66,7 @@ const translationsData: Record<Locale, Translations> = {
       title: "Programando con precisión",
       subtitle: [
         "Backend Developer",
+        "Desarrollador Frontend",
         "Apasionado de la Tecnología",
         "Creador de Soluciones",
         "Desarrollador Web",
@@ -118,6 +119,7 @@ const translationsData: Record<Locale, Translations> = {
       title: "Coding with Precision",
       subtitle: [
         "Backend Developer",
+        "Frontend Developer",
         "Technology Enthusiast",
         "Solution Creator",
         "Web Developer",
