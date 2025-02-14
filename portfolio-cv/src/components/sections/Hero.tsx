@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Columna de la Imagen */}
       <div className="relative flex justify-center md:w-1/2">
         <motion.div
-          className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-8 border-blue-500 shadow-xl overflow-hidden"
+          className="relative w-60 h-60 md:w-80 md:h-80 rounded-full shadow-xl overflow-hidden"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
