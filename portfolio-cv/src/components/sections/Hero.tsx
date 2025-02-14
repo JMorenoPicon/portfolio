@@ -25,14 +25,14 @@ export default function Hero() {
       {/* Columna de la Imagen */}
       <div className="relative flex justify-center md:w-1/2">
         <motion.div
-          className="relative w-60 h-60 md:w-80 md:h-80 rounded-full shadow-xl overflow-hidden"
+          className="relative w-60 h-60 md:w-80 md:h-80 shadow-xl overflow-hidden"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
           <Image
             src="/avatar.png"
-            alt="Avatar de Javier"
+            alt={translations.hero.avatarAlt}
             width={300}
             height={300}
             className="rounded-full"
@@ -108,6 +108,16 @@ export default function Hero() {
             <FaLinkedin className="hover:text-blue-500 transition" />
           </a>
         </div>
+
+        {/* Nuevo Texto sobre ti debajo de los iconos con traducción dinámica */}
+        <motion.p
+          className="mt-6 text-md md:text-lg text-gray-300 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          {translations.hero.aboutMe}
+        </motion.p>
       </div>
     </section>
   );

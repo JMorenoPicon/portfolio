@@ -15,6 +15,7 @@ interface Translations {
     buttonCv: string;
     buttonContact: string;
     avatarAlt: string;
+    aboutMe: string;
   };
   about: {
     title: string;
@@ -74,6 +75,8 @@ const translationsData: Record<Locale, Translations> = {
       buttonCv: "Mi CV",
       buttonContact: "Contacto",
       avatarAlt: "Avatar de Javier",
+      aboutMe:
+        "Me apasiona el desarrollo de software, especialmente en el backend, donde disfruto creando soluciones eficientes y escalables. Mi curiosidad por la tecnología me motiva a mejorar constantemente mis habilidades y aprender nuevas herramientas para desarrollar aplicaciones innovadoras.",
     },
     about: {
       title: "Sobre mí",
@@ -127,6 +130,8 @@ const translationsData: Record<Locale, Translations> = {
       buttonCv: "My Resume",
       buttonContact: "Contact",
       avatarAlt: "Javier's Avatar",
+      aboutMe:
+        "I am passionate about software development, especially in backend, where I enjoy creating efficient and scalable solutions. My curiosity for technology drives me to continuously improve my skills and learn new tools to develop innovative applications.",
     },
     about: {
       title: "About Me",

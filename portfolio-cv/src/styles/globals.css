@@ -6,11 +6,19 @@
 body {
     @apply bg-gray-900 text-white font-sans;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Contenedor principal */
 .container {
     @apply max-w-screen-lg w-full px-4 flex flex-col items-center justify-center;
+}
+
+/* Contenido principal ocupa todo el espacio disponible */
+main {
+    flex: 1; /* Empuja el footer hacia abajo */
+    padding-bottom: 80px; /* Evita que el contenido sea cubierto por el footer */
 }
 
 /* Animación de borde */
