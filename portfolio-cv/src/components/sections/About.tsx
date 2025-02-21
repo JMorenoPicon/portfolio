@@ -1,32 +1,25 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaNodeJs, FaDocker, FaGit, FaJs, FaJava, FaHtml5, FaCss3Alt } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiNestjs, SiTypescript, SiPostman, SiEclipseide, SiMysql, SiAngular, SiFigma } from "react-icons/si";
+import { SiMongodb, SiExpress, SiNextdotjs, SiTypescript, SiPostman, SiEclipseide, SiMysql, SiAngular, SiFigma } from "react-icons/si";
 import { useLocale } from "@/context/LocaleContext"; // Importa el contexto de traducción
 
 const skills = [
-  // 🟢 Backend
   { name: "Node.js", icon: <FaNodeJs /> },
   { name: "Express.js", icon: <SiExpress /> },
-  { name: "NestJS", icon: <SiNestjs /> },
+  { name: "Next.js", icon: <SiNextdotjs /> },
   { name: "MongoDB", icon: <SiMongodb /> },
   { name: "MySQL", icon: <SiMysql /> },
-
-  // 🔵 Frontend
   { name: "JavaScript", icon: <FaJs /> },
   { name: "TypeScript", icon: <SiTypescript /> },
   { name: "Angular", icon: <SiAngular /> },
   { name: "HTML", icon: <FaHtml5 /> },
   { name: "CSS", icon: <FaCss3Alt /> },
-
-  // 🛠️ Herramientas y DevOps
   { name: "Docker", icon: <FaDocker /> },
   { name: "Git", icon: <FaGit /> },
   { name: "Postman", icon: <SiPostman /> },
   { name: "Eclipse", icon: <SiEclipseide /> },
-  { name: "Figma", icon: <SiFigma /> },  // 🎨 Figma añadido
-
-  // 🔴 Otros Lenguajes
+  { name: "Figma", icon: <SiFigma /> },
   { name: "Java", icon: <FaJava /> }
 ];
 
@@ -36,21 +29,20 @@ export default function About() {
   return (
     <section className="bg-darkBlue text-white py-20 px-6 md:px-20">
       {/* Contenedor principal */}
-      <div className="flex flex-col md:flex-row justify-center items-center">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6">
         {/* Foto Personal */}
         <motion.div
-          className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-8 border-blue-500 shadow-xl overflow-hidden 
-                     mb-8 md:mb-0 md:mr-12"
+          className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full border-4 sm:border-6 md:border-8 border-blue-500 shadow-xl overflow-hidden"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
           <Image
-            src="/mi-foto.jpg"
+            src="/aboutMe.png"
             alt={translations.hero.avatarAlt}
             width={300}
             height={300}
-            className="rounded-full"
+            className="rounded-full w-full h-full object-cover"
           />
         </motion.div>
 

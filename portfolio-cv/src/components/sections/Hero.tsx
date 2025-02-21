@@ -21,11 +21,11 @@ export default function Hero() {
   }, [roles]);
 
   return (
-    <section className="min-h-screen pt-20 md:pt-24 pb-20 md:pb-24 flex flex-col md:flex-row justify-center items-center px-6 md:px-20 bg-darkBlue">
+    <section className="min-h-screen pt-20 md:pt-24 pb-20 md:pb-24 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 px-6 md:px-20 lg:px-32 bg-darkBlue">
       {/* Columna de la Imagen */}
       <div className="relative flex justify-center md:w-1/2">
         <motion.div
-          className="relative w-60 h-60 md:w-80 md:h-80 shadow-xl overflow-hidden"
+          className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full border-4 sm:border-6 md:border-8 border-blue-500 shadow-xl overflow-hidden"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -35,7 +35,7 @@ export default function Hero() {
             alt={translations.hero.avatarAlt}
             width={300}
             height={300}
-            className="rounded-full"
+            className="rounded-full w-full h-full object-cover"
           />
         </motion.div>
       </div>
