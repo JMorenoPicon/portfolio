@@ -44,7 +44,7 @@ const projectsData = {
       description:
         "Application for pet adoption and reporting lost or found pets.",
       technologies: ["Angular", "Bootstrap", "Node.js", "MongoDB"],
-      image: "/projects/pet-finder.png",
+      image: "/projects/pet-finder.jpg",
       link: "https://github.com/JMorenoPicon/pet-finder",
     },
     {
